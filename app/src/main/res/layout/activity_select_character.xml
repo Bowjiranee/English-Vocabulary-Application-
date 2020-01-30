@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg06"
+    android:padding="20dp"
+    tools:context=".SelectCharacterActivity">
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="130dp">
+
+            <TextView
+                android:id="@+id/headerPlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:text="PLAYER 1 "
+                android:textColor="@color/black"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/headerPlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:text="PLAYER 2"
+                android:textColor="@color/black"
+                android:textSize="32sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:id="@+id/imagePlayer1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:src="@drawable/avatar01" />
+
+            <ImageView
+                android:id="@+id/imagePlayer2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:src="@drawable/avatar04" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/ok_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="2"
+            android:text="OK" />
+
+    </LinearLayout>
+</RelativeLayout>

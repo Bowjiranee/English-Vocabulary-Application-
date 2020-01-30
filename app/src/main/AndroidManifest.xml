@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.englishapplicationforkidbyimageprocessing">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera2.full" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ScorePlayer2Activity"></activity>
+        <activity android:name=".Playing2Activity" />
+        <activity android:name=".PlayingActivity" />
+        <activity android:name=".LearningImageProcessingActivity" />
+        <activity android:name=".PreviewToUploadActivity" />
+        <activity android:name=".Camera3Activity" />
+        <activity android:name=".Camera2Activity" />
+        <activity android:name=".CameraActivity" />
+        <activity android:name=".ScorePlayerActivity" />
+        <activity android:name=".SelectCategoryActivity" />
+        <activity android:name=".SelectCharacterActivity" />
+        <activity android:name=".InputURLActivity" />
+        <activity android:name=".SelectLearnPlayActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
