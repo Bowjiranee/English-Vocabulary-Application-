@@ -18,8 +18,8 @@
             android:textSize="55dp" />
         <ImageView
             android:id="@+id/study_image_view"
-            android:layout_width="260dp"
-            android:layout_height="260dp"
+            android:layout_width="270dp"
+            android:layout_height="280dp"
             android:layout_gravity="center_horizontal" />
 
         <TableRow
@@ -39,9 +39,9 @@
 
             <ImageView
                 android:id="@+id/checkSoundImage"
+                android:layout_marginTop="10dp"
                 android:layout_width="84dp"
                 android:layout_height="84dp" />
-
 
         </TableRow>
 
@@ -55,32 +55,36 @@
                 android:id="@+id/button_listen"
                 android:layout_width="84dp"
                 android:layout_height="84dp"
+                android:layout_marginRight="45dp"
                 android:background="@drawable/ear" />
 
             <Button
                 android:id="@+id/button_speak_study"
                 android:layout_width="84dp"
                 android:layout_height="84dp"
-                android:layout_marginLeft="55dp"
+                android:layout_marginLeft="35dp"
                 android:background="@drawable/test" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_below="@id/row1">
             <TextView
+                android:id="@+id/text_view_listen1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:text="กดเพื่อฟังเสียง"/>
 
             <TextView
+                android:id="@+id/text_view_speak1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:textColor="@color/black"
-                android:text="กดค้างเเล้วปล่อยเพื่อออกเสียง"/>
+                android:text="กดค้างเเล้วพูดเพื่อออกเสียง"/>
         </TableRow>
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,14 +95,14 @@
                 android:id="@+id/next_button"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:text="NEXT" />
+                android:text="ถ่ายรูปผัก" />
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/end_button"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:text="END"/>
+                android:text="ออก"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

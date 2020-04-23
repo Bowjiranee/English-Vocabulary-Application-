@@ -3,6 +3,7 @@ package com.example.englishapplicationforkidbyimageprocessing.Database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -18,15 +19,15 @@ public class GameDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_ID = "_id";
     public static final String COL_IMAGE = "image";
     public static final String COL_SOUND = "sound";
-    public static final String COL_SCORE_PLAYER = "player";
+    public static final String COL_MEANING = "mean";
 
 
     private static final String SQL_CREATE_TABLE_WORD
             = "CREATE TABLE " + WORDS_TABLE + "("
             + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + COL_IMAGE + " TEXT,"
-            + COL_SOUND + " ,"
-            + COL_SCORE_PLAYER + " TEXT"
+            + COL_SOUND + " TEXT,"
+            + COL_MEANING + " TEXT"
             + ")";
     private String DROP_WORD_TABLE = "DROP TABLE IF EXISTS " + WORDS_TABLE;
 
@@ -47,29 +48,29 @@ public class GameDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COL_ID, wordsGame.getId());
         cv.put(COL_IMAGE, wordsGame.getImage());
         cv.put(COL_SOUND,wordsGame.getSound());
-        cv.put(COL_SCORE_PLAYER,wordsGame.getScore());
+        cv.put(COL_MEANING,wordsGame.getMeaning());
 
         db.insert(WORDS_TABLE, null, cv);
         db.close();
     }
 
-    private void addAllQuestion(ArrayList<WordsGame> arrList) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.beginTransaction();
-        try {
-            ContentValues cv = new ContentValues();
-            for (WordsGame words : arrList) {
-                cv.put(COL_IMAGE, words.getImage());
-                cv.put(COL_SOUND, words.getSound());
-                cv.put(COL_SCORE_PLAYER, words.getScore());
-                db.insert(WORDS_TABLE, null, cv);
-            }
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-            db.close();
-        }
-    }
+//    private void addAllQuestion(ArrayList<WordsGame> arrList) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        db.beginTransaction();
+//        try {
+//            ContentValues cv = new ContentValues();
+//            for (WordsGame words : arrList) {
+//                cv.put(COL_IMAGE, words.getImage());
+//                cv.put(COL_SOUND, words.getSound());
+//                cv.put(COL_MEANING, words.getMeaning());
+//                db.insert(WORDS_TABLE, null, cv);
+//            }
+//            db.setTransactionSuccessful();
+//        } finally {
+//            db.endTransaction();
+//            db.close();
+//        }
+//    }
 
     public ArrayList<WordsGame> getAllOfTheQuestions() {
 
@@ -91,23 +92,39 @@ public class GameDatabaseHelper extends SQLiteOpenHelper {
                 wordsList.add(game);
             } while (cursor.moveToNext());
         }
-        // return student list
+        // return words list
         return wordsList;
     }
 
     public void wordsQuestion(){
-        this.addWordsQuestion(new WordsGame(0,"test","test",""));
+        this.addWordsQuestion(new WordsGame(0,"test","test","test"));
     }
 
-    public String getSoundPath(){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        Cursor cursor = db.rawQuery("SELECT " + COL_SOUND
-                + " FROM " + WORDS_TABLE  , null);
-        cursor.moveToLast();
-        String cr = cursor.getString(cursor.getColumnIndex(COL_SOUND));
-        return cr;
-    }
+//    public void addImageSoundPath(String img,String sound){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues cv = new ContentValues();
+//        cv.put(COL_IMAGE, img);
+//        cv.put(COL_SOUND,sound);
+//        db.insert(WORDS_TABLE, null, cv);
+//        db.close();
+//    }
+//
+//    public long getDataCount() {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        long count = DatabaseUtils.queryNumEntries(db, WORDS_TABLE);
+//        db.close();
+//        return count;
+//    }
+//
+//    public String getSoundPath(){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//
+//        Cursor cursor = db.rawQuery("SELECT " + COL_SOUND
+//                + " FROM " + WORDS_TABLE  , null);
+//        cursor.moveToLast();
+//        String cr = cursor.getString(cursor.getColumnIndex(COL_SOUND));
+//        return cr;
+//    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {

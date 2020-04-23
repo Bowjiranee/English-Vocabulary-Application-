@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
-                android:text="PLAYER 1 "
+                android:text="ผู้เล่นหญิง"
                 android:textColor="@color/black"
                 android:textSize="32sp" />
 
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
-                android:text="PLAYER 2"
+                android:text="ผู้เล่นชาย"
                 android:textColor="@color/black"
                 android:textSize="32sp" />
 
@@ -71,7 +71,7 @@
             android:layout_height="60dp"
             android:layout_marginRight="10dp"
             android:layout_weight="2"
-            android:text="OK" />
+            android:text="โอเค" />
 
     </LinearLayout>
 </RelativeLayout>

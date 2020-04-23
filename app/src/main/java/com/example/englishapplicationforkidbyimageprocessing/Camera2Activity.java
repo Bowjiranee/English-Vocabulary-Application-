@@ -78,8 +78,13 @@ public class Camera2Activity extends AppCompatActivity {
         textureView = (TextureView) findViewById(R.id.textureView2);
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
+
         takePictureButton = findViewById(R.id.btnCapture);
         takePictureButton.setButtonColor(getResources().getColor(R.color.white));
+        takePictureButton.setShadowEnabled(true);
+        takePictureButton.setShadowHeight(30);
+        takePictureButton.setCornerRadius(30);
+
         assert takePictureButton != null;
         takePictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,7 +225,7 @@ public class Camera2Activity extends AppCompatActivity {
                 public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
                     super.onCaptureCompleted(session, request, result);
                     //Toast.makeText(CameraAPIActivity.this, "Saved:" + file, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Camera2Activity.this,PreviewToUploadActivity.class);
+                    Intent intent = new Intent(Camera2Activity.this,PreviewToUploadActivity2.class);
                     intent.putExtra("ImageFrom","camera");
                     startActivity(intent);
                     createCameraPreview();

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/bg009"
+    tools:context=".QuestionGameActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="right"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_width="88dp"
+            android:layout_height="89dp"
+            android:src="@drawable/star03"/>
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="21dp"
+            android:text="คะเเนน"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:src="@drawable/star03"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/header_banner"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/levelGame_quiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/header_banner"
+            android:layout_alignTop="@+id/header_banner"
+            android:layout_marginLeft="3dp"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/header_banner"
+            android:layout_alignTop="@+id/header_banner"
+            android:layout_marginLeft="3dp"
+            android:text="/ 10"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+        <TextView
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scorePlayer_quiz"
+            android:layout_marginRight="26dp"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_banner"
+        android:layout_marginTop="65dp"
+        android:stretchColumns="*">
+
+        <TableRow android:gravity="center_horizontal" android:layout_marginBottom="20dp">
+            <ImageView
+                android:id="@+id/image_view_quiz"
+                android:layout_width="330dp"
+                android:layout_height="280dp"
+                />
+        </TableRow>
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/button_quiz_a"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+        <info.hoang8f.widget.FButton
+            android:id="@+id/button_quiz_b"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp" />
+        <info.hoang8f.widget.FButton
+            android:id="@+id/button_quiz_c"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp" />
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <!--<info.hoang8f.widget.FButton-->
+            <!--android:id="@+id/next_button_quiz"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:text="ต่อไป"/>-->
+        <info.hoang8f.widget.FButton
+            android:id="@+id/next_button_quiz"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="ต่อไป"/>
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/end_button_quiz"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="จบเกม" />
+    </LinearLayout>
+
+</RelativeLayout>

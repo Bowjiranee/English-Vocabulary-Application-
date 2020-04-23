@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/game_score_text_view"
+            android:id="@+id/game_score1_text_view"
             android:layout_marginTop="168dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +37,8 @@
             android:id="@+id/home_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="HOME" />
+            android:padding="10dp"
+            android:text="กลับหน้าเเรก" />
 
 
     </LinearLayout>

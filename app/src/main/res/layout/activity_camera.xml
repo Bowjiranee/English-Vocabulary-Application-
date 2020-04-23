@@ -17,12 +17,13 @@
         android:textColor="@color/white" />
 
     <TextureView
-        android:layout_marginTop="10dp"
         android:id="@+id/textureView"
         android:layout_width="match_parent"
         android:layout_height="760dp"
-        android:layout_alignParentBottom="true"
-        android:layout_above="@+id/btnCapture" />
+        android:layout_above="@+id/btnCapture"
+        android:layout_below="@+id/textCategory"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-20dp" />
 
     <info.hoang8f.widget.FButton
         android:id="@+id/btnCapture"

@@ -8,12 +8,15 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.englishapplicationforkidbyimageprocessing.Database.GameDatabaseHelper;
 import com.example.englishapplicationforkidbyimageprocessing.Database.NgrokDatabaseHelper;
+import com.example.englishapplicationforkidbyimageprocessing.Model.WordsGame;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
@@ -24,6 +27,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -42,24 +46,34 @@ public class PreviewToUploadActivity extends AppCompatActivity {
         cancel_btn = findViewById(R.id.cancel_Button);
         accept_btn = findViewById(R.id.accept_Button);
 
+        cancel_btn.setButtonColor(getResources().getColor(R.color.red));
+        cancel_btn.setShadowEnabled(true);
+        cancel_btn.setShadowHeight(25);
+        cancel_btn.setCornerRadius(25);
+
+        accept_btn.setButtonColor(getResources().getColor(R.color.light_green));
+        accept_btn.setShadowEnabled(true);
+        accept_btn.setShadowHeight(25);
+        accept_btn.setCornerRadius(25);
+
         mHelper = new NgrokDatabaseHelper(this);
 
         showImage();
-        cancel_btn.setButtonColor(getResources().getColor(R.color.red));
         cancel_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PreviewToUploadActivity.this, SelectCategoryActivity.class);
                 startActivity(intent);
+
             }
         });
 
-        accept_btn.setButtonColor(getResources().getColor(R.color.light_green));
         accept_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 resizeImage();
-                Toast.makeText(PreviewToUploadActivity.this,"กำลังอัปโหลดรูป...", Toast.LENGTH_LONG).show();
+                accept_btn.setVisibility(View.GONE);
+//                Toast.makeText(PreviewToUploadActivity.this,"กำลังอัปโหลดรูป...", Toast.LENGTH_LONG).show();
                 uploadImage();
             }
         });
@@ -68,7 +82,7 @@ public class PreviewToUploadActivity extends AppCompatActivity {
     private void showImage() {
         OutputStream out = null;
         File file = new File(Environment.getExternalStorageDirectory()+"/wordsapp"+".jpg");
-        ImageView image = (ImageView)findViewById(R.id.show_images);
+        ImageView image = findViewById(R.id.show_images);
         Matrix matrix = new Matrix();
         Intent intent = getIntent();
         String ImageFrom = intent.getStringExtra("ImageFrom");
@@ -115,7 +129,8 @@ public class PreviewToUploadActivity extends AppCompatActivity {
     }
 
     private void uploadImage() {
-        Toast.makeText(PreviewToUploadActivity.this,"อัปโหลดรูปเรียบร้อยเเล้ว", Toast.LENGTH_LONG).show();
+        Toast.makeText(PreviewToUploadActivity.this, "รอสักครู่นะคะ...", Toast.LENGTH_LONG).show();
+
         String url = "https://"+mHelper.getNgrokPath()+".ngrok.io";
         SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy_HH_mm", Locale.KOREA);
         Date now = new Date();
@@ -128,6 +143,7 @@ public class PreviewToUploadActivity extends AppCompatActivity {
                     @Override
                     public void onCompleted(Exception e, String result) {
                         processModel();
+
                     }
                 });
     }
@@ -135,7 +151,7 @@ public class PreviewToUploadActivity extends AppCompatActivity {
 
     private void processModel() {
         String url = "https://"+mHelper.getNgrokPath()+".ngrok.io";
-        Toast.makeText(getBaseContext(), "กำลังประมวลผล...", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getBaseContext(), "กำลังตรวจสอบการประมวลผล...", Toast.LENGTH_LONG).show();
 
         Ion.with(this)
                 .load(url+"/wordsapp/runclassify.php")
@@ -143,17 +159,18 @@ public class PreviewToUploadActivity extends AppCompatActivity {
                 .setCallback(new FutureCallback<String>() {
                     @Override
                     public void onCompleted(Exception e, String result) {
+                        Log.i("nullll",result.trim());
                         if(result != null){
                             Toast.makeText(getBaseContext(), "ประมวลผลสำเร็จ!", Toast.LENGTH_LONG).show();
-//                            Toast.makeText(UploadActivity.this,"results : "+result,Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(PreviewToUploadActivity.this,LearningImageProcessingActivity.class);
                             intent.putExtra("results",result);
                             startActivity(intent);
+                            finish();
                         }else{
-                            Toast toast = Toast.makeText(getBaseContext(), "อัปโหลดรูปภาพไม่สำเร็จ!!", Toast.LENGTH_LONG);
-                            toast.setGravity(Gravity.CENTER,0,0);
+                            Toast.makeText(getBaseContext(), "ประมวลผลไม่สำเร็จ! เลือกหมวดหมู่เพื่อถ่ายใหม่...", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(PreviewToUploadActivity.this,SelectCategoryActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                     }
                 });

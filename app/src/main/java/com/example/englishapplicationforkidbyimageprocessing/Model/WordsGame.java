@@ -1,16 +1,18 @@
 package com.example.englishapplicationforkidbyimageprocessing.Model;
 
+import java.sql.Blob;
+
 public class WordsGame {
     int id;
     String image;
     String sound;
-    String score;
+    String meaning;
 
-    public WordsGame(int id,String image, String sound, String score) {
+    public WordsGame(int id,String image, String sound, String meaning) {
         this.id = id;
         this.image = image;
         this.sound = sound;
-        this.score = score;
+        this.meaning = meaning;
     }
 
     public int getId() {
@@ -25,8 +27,8 @@ public class WordsGame {
         return sound;
     }
 
-    public String getScore() {
-        return score;
+    public String getMeaning() {
+        return meaning;
     }
 
     public void setId(int id) {
@@ -41,7 +43,7 @@ public class WordsGame {
         this.sound = sound;
     }
 
-    public void setScore(String score) {
-        this.score = score;
+    public void setMeaning(String meaning) {
+        this.meaning = meaning;
     }
 }

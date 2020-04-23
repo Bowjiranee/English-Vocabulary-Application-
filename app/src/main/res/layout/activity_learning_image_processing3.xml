@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/bg04"
+    tools:context=".LearningImageProcessingActivity3">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:background="@drawable/header"
+            android:textSize="55dp" />
+        <ImageView
+            android:id="@+id/study_image_view3"
+            android:layout_width="270dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TableRow
+            android:id="@+id/row1"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/study_image_view3">
+            <TextView
+                android:id="@+id/study_text_view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Not Found"
+                android:textColor="@color/black"
+                android:textSize="50dp" />
+
+            <ImageView
+                android:id="@+id/checkSoundImage3"
+                android:layout_marginTop="10dp"
+                android:layout_width="84dp"
+                android:layout_height="84dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/row1">
+            <Button
+                android:id="@+id/button_listen3"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/ear" />
+
+            <Button
+                android:id="@+id/button_speak_study3"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_marginLeft="35dp"
+                android:background="@drawable/test" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_below="@id/row1">
+            <TextView
+                android:id="@+id/text_view_listen3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="กดเพื่อฟังเสียง"/>
+
+            <TextView
+                android:id="@+id/text_view_speak3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:textColor="@color/black"
+                android:text="กดค้างเเล้วพูดเพื่อออกเสียง"/>
+        </TableRow>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom"
+            android:layout_height="match_parent">
+            <info.hoang8f.widget.FButton
+                android:id="@+id/next_button3"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="ถ่ายรูปสัตว์" />
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/end_button3"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:text="ออก" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

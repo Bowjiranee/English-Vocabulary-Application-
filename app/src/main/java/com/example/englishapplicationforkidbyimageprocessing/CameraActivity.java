@@ -78,8 +78,13 @@ public class CameraActivity extends AppCompatActivity {
         textureView = (TextureView) findViewById(R.id.textureView);
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
+
         takePictureButton = findViewById(R.id.btnCapture);
         takePictureButton.setButtonColor(getResources().getColor(R.color.white));
+        takePictureButton.setShadowEnabled(true);
+        takePictureButton.setShadowHeight(30);
+        takePictureButton.setCornerRadius(30);
+
         assert takePictureButton != null;
         takePictureButton.setOnClickListener(new View.OnClickListener() {
             @Override

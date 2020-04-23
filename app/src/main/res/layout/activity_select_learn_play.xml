@@ -11,47 +11,48 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="200dp"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
+            android:gravity="right"
             android:layout_height="wrap_content">
             <info.hoang8f.widget.FButton
-                android:id="@+id/btnVocab"
-                android:layout_width="120dp"
-                android:layout_weight="2"
-                android:layout_marginRight="20dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="คลังคำศัพท์" />
-            <info.hoang8f.widget.FButton
+                android:layout_marginLeft="16dp"
                 android:id="@+id/btnurl"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
                 android:text="ป้อน URL" />
         </LinearLayout>
 
+        <info.hoang8f.widget.FButton
+            android:id="@+id/btnVocabs"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textSize="27dp"
+            android:text="เรียนรู้การออกเสียงคำศัพท์" />
 
         <info.hoang8f.widget.FButton
             android:id="@+id/study_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
-            android:text="ถ่ายรูปเพื่อเรียนรู้"
-            android:textSize="33dp" />
+            android:text="ถ่ายรูปคำศัพท์ภาษาอังกฤษ"
+            android:textSize="27dp" />
 
         <info.hoang8f.widget.FButton
             android:id="@+id/play_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:textSize="33dp"
-            android:text="เล่นเกมออกเสียงคำศัพท์"/>
+            android:text="เล่นเกม"/>
     </LinearLayout>
 
 </RelativeLayout>

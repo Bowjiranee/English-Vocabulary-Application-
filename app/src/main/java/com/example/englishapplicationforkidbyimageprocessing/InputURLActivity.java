@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.englishapplicationforkidbyimageprocessing.Database.NgrokDatabaseHelper;
-import com.example.englishapplicationforkidbyimageprocessing.Model.Ngrok;
 
 import info.hoang8f.widget.FButton;
 
@@ -23,6 +22,11 @@ public class InputURLActivity extends AppCompatActivity {
         setContentView(R.layout.activity_input_url);
 
         mButton = findViewById(R.id.ok_button_ngrok);
+
+        mButton.setShadowEnabled(true);
+        mButton.setShadowHeight(25);
+        mButton.setCornerRadius(25);
+
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

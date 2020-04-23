@@ -14,5 +14,9 @@
     <color name="green">#009688</color>
     <color name="white">#FFFFFF</color>
     <color name="light_blue">#62B8E0</color>
+    <color name="grey">#BEB0B0</color>
+    <color name="cream">#F7E8D9</color>
     <color name="color_transparent">@android:color/transparent</color>
+
+    <color name="bg">#ffdfd5</color>
 </resources>

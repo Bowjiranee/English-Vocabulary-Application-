@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="35dp"
+    android:background="@drawable/bg02"
+    tools:context=".LevelPlayingActivity">
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/easy_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="220dp"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:text="เกมฝึกตอบคำถาม"
+        android:textSize="33dp" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/hard_btn"
+        android:layout_marginTop="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="33dp"
+        android:text="เกมฝึกออกเสียง"/>
+</LinearLayout>
